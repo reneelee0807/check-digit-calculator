@@ -1,0 +1,16 @@
+<form *ngIf="form" [formGroup]="form">
+    <div class="form-group">
+        <label>Barcode</label>
+        <input formControlName="barcode" type="number" class="form-control">
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button (click)="reset()" [disabled]="!barcodeFormControl.value" class="btn btn-default">
+            Reset
+        </button>
+        <button type="submit" [disabled]="form.invalid" (click)="onSubmit(form)" class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+</form>
+<p *ngIf="displayResult" class="text-center font-weight-bold">The check digit is {{checkDigit}}</p>
